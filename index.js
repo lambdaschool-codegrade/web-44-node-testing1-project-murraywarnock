@@ -85,8 +85,9 @@ class Seasons {
    */
   constructor() {
     // ✨ initialize whatever properties are needed
+    this.seasons = ["summer", "fall", "winter", "spring"];
+    this.currentSeason = 0;
   }
-
   /**
    * [Exercise 5B] Seasons.prototype.next returns the next season
    * @returns {string} - the next season starting with "summer"
@@ -99,10 +100,17 @@ class Seasons {
    * seasons.next() // returns "spring"
    * seasons.next() // returns "summer"
    */
-  next() {
-    // ✨ implement
+   next() {
+    const result = this.seasons[this.currentSeason];
+    if (this.currentSeason === 3) {
+      this.currentSeason = 0;
+    } else {
+      ++this.currentSeason;
+    }
+    return result;
   }
 }
+
 
 class Car {
   /**
@@ -112,8 +120,9 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0 // car initilizes with zero miles
-    this.tank = tankSize // car initiazes full of gas
+    this.odometer = 0; // car initilizes with zero miles
+    this.tank = tankSize; 
+    this.tankSize = tankSize;// car initiazes full of gas
     // ✨ initialize whatever other properties are needed
   }
 
